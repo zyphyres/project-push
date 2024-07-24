@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container } from "@chakra-ui/react";
+
+import { Landing } from './screens'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container
+      m={0}
+      p={0}
+      h='100vh'
+      w='100vw'
+      maxHeight='100vh'
+      maxWidth='100vw'
+    >
+        <Landing />
+    </Container>
   );
 }
 
