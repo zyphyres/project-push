@@ -64,7 +64,7 @@ const LandingPage = () => {
 
       // If login is successful, navigate to the next page
       if (response.status === 200) {
-        navigate("/next-page"); // Replace '/next-page' with your desired path
+        navigate("/dashboard"); // Replace '/next-page' with your desired path
       } else {
         console.error("Login failed");
       }
