@@ -227,7 +227,7 @@ const LandingPage = () =>
                       bg: 'blue.100', 
                       color: '#056a94'
                     }}}
-                  >
+                  > 
                     UNGOss
                   </Button>
                 </Center>   
