@@ -228,7 +228,7 @@ const LandingPage = () =>
                       color: '#056a94'
                     }}}
                   >
-                    LOGIN
+                    LOGIN1
                   </Button>
                 </Center>   
               </form> 
