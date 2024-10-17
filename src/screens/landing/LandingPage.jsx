@@ -21,7 +21,7 @@ import { LoginBoxShadow, ResponsiveTool } from "../../utils";
 
 const LandingPage = () => {
   const [data, setData] = useState({
-    ntlogin: "jggerial",
+    ntlogin: "",
     password: "",
   });
 
@@ -193,6 +193,7 @@ const LandingPage = () => {
                     <Input
                       type="text"
                       name="ntlogin"
+                      placeholder="ntlogin"
                       value={data.ntlogin}
                       onChange={handleChange}
                       pl="40px"
@@ -218,6 +219,7 @@ const LandingPage = () => {
                     <Input
                       type="password"
                       name="password"
+                      placeholder="password"
                       value={data.password}
                       onChange={handleChange}
                       pl="40px"
