@@ -228,7 +228,7 @@ const LandingPage = () =>
                       color: '#056a94'
                     }}}
                   >
-                    LOG IN
+                    TAEE
                   </Button>
                 </Center>   
               </form> 
