@@ -228,7 +228,7 @@ const LandingPage = () =>
                       color: '#056a94'
                     }}}
                   >
-                    TAEE
+                    UNGO NGA CHRISTAIN
                   </Button>
                 </Center>   
               </form> 
