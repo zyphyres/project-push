@@ -1,9 +1,10 @@
 import Landing from './landing/LandingPage'
-import Dashboard from './landing/Dashboard'
+import Dashboard from './push/Dashboard'
+import ProtectedRoute from './route/ProtectedRoute'
 // import { cache } from 'react';
 
 // cache.clear();
 export 
 {
-Landing, Dashboard
+Landing, Dashboard, ProtectedRoute
 };

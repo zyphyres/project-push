@@ -26,7 +26,7 @@ const LandingPage = () => {
   });
 
   const navigate = useNavigate(); // Initialize useNavigate for redirection
-  const { headerH, logoW, titleW, cWidth, cHeight, transitionStyles } =
+  const { headerH, logoW, titleW, transitionStyles } =
     ResponsiveTool();
   const { shadowOne, shadowTwo } = LoginBoxShadow();
   const theme = useTheme();
@@ -48,7 +48,7 @@ const LandingPage = () => {
         { withCredentials: true }
       );
       const csrfToken = csrfResponse.data.csrf_token;
-
+  
       const response = await axios.post(
         "http://bac-dev08:3000/api/login",
         data,
@@ -59,15 +59,13 @@ const LandingPage = () => {
           },
         }
       );
-
-      console.log(response.data); 
-      // for session ntlogin 
-      console.log(response.data.data[0].ntlogin); 
-      
-
-      // If login is successful, navigate to the next page
+  
+      // If login is successful, store session data in localStorage
       if (response.status === 200) {
-        navigate("/dashboard"); // Replace '/next-page' with your desired path
+        // Store login status
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("ntlogin", response.data.data[0].ntlogin);  // Store ntlogin if needed
+        navigate("/dashboard"); // Redirect to the dashboard
       } else {
         console.error("Login failed");
       }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@chakra-ui/react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Landing, Dashboard } from "./screens";
+import { Landing, Dashboard,ProtectedRoute } from "./screens";
 
 function App() {
   return (
@@ -15,8 +15,16 @@ function App() {
         maxWidth="100vw"
       >
         <Routes>
-         <Route path="/" element={<Landing />} />
-         <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Landing />} />
+          {/* Wrap dashboard route in ProtectedRoute */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Container>
     </Router>
