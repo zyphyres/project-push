@@ -228,7 +228,7 @@ const LandingPage = () =>
                       color: '#056a94'
                     }}}
                   >
-                    LOGIN
+                    UNGOss
                   </Button>
                 </Center>   
               </form> 
