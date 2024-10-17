@@ -14,6 +14,7 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 import { useTheme } from "@emotion/react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 
 import { MainLogo, PushLogo } from "../../assets";
 import { LoginBoxShadow, ResponsiveTool } from "../../utils";
@@ -24,6 +25,7 @@ const LandingPage = () => {
     password: "",
   });
 
+  const navigate = useNavigate(); // Initialize useNavigate for redirection
   const { headerH, logoW, titleW, cWidth, cHeight, transitionStyles } =
     ResponsiveTool();
   const { shadowOne, shadowTwo } = LoginBoxShadow();
@@ -40,34 +42,35 @@ const LandingPage = () => {
 
   const submitForm = async (event) => {
     event.preventDefault();
-    const csrfResponse = await axios.get(
-      "http://bac-dev08:3000/sanctum/csrf-cookie",
-      { withCredentials: true }
-    );
-    const csrfToken = csrfResponse.data.csrf_token;
+    try {
+      const csrfResponse = await axios.get(
+        "http://bac-dev08:3000/sanctum/csrf-cookie",
+        { withCredentials: true }
+      );
+      const csrfToken = csrfResponse.data.csrf_token;
 
-    const response = await axios.post("http://bac-dev08:3000/api/login", data, {
-      withCredentials: true, // Include cookies in the request
-      withXSRFToken: true,
-      headers: {
-        "Access-Control-Allow-Credentials": true,
-        "X-CSRF-TOKEN": csrfToken, // Include CSRF token in a custom header
-        // 'Authorization': 'Bearer your_access_token' // Include authorization token
-      },
-      // xsrfCookieName: 'XSRF-TOKEN', // Specify the name of the CSRF token cookie
-      // xsrfHeaderName: 'X-XSRF-TOKEN', // Specify the name of the CSRF token header
-    });
-    console.log(response.data);
+      const response = await axios.post(
+        "http://bac-dev08:3000/api/login",
+        data,
+        {
+          withCredentials: true,
+          headers: {
+            "X-CSRF-TOKEN": csrfToken,
+          },
+        }
+      );
 
-    // // console.log(data);
-    //   axios.get('http://bac-dev08:3000/login')
+      console.log(response.data);
 
-    //     .then(response => {
-    //       console.log(response.data);
-    //     })
-    //     .catch(error => {
-    //       console.error(error);
-    //     });
+      // If login is successful, navigate to the next page
+      if (response.status === 200) {
+        navigate("/next-page"); // Replace '/next-page' with your desired path
+      } else {
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Error during login", error);
+    }
   };
 
   return (
@@ -192,7 +195,7 @@ const LandingPage = () => {
                       name="ntlogin"
                       value={data.ntlogin}
                       onChange={handleChange}
-                      pl="40px" // Ensure there's enough padding for the icon
+                      pl="40px"
                       variant="filled"
                       borderRadius="20px"
                       style={shadowTwo}
@@ -217,7 +220,7 @@ const LandingPage = () => {
                       name="password"
                       value={data.password}
                       onChange={handleChange}
-                      pl="40px" // Adjust padding for the icon
+                      pl="40px"
                       variant="filled"
                       borderRadius="20px"
                       style={shadowTwo}
