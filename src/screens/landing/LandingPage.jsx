@@ -60,7 +60,10 @@ const LandingPage = () => {
         }
       );
 
-      console.log(response.data);
+      console.log(response.data); 
+      // for session ntlogin 
+      console.log(response.data.data[0].ntlogin); 
+      
 
       // If login is successful, navigate to the next page
       if (response.status === 200) {
