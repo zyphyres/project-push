@@ -170,7 +170,7 @@ const LandingPage = () => {
               justifyContent="center"
             >
               <Text fontSize="30px" fontWeight="bold" color="#056a94">
-                Kent Denmark Y. Cabagua
+                Login
               </Text>
             </Box>
 
