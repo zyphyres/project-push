@@ -71,7 +71,9 @@ const Dashboard = () => {
 
 <CSidebar className="border-end">
   <CSidebarHeader className="border-bottom">
-    <CSidebarBrand><CImage rounded thumbnail src={MainLogo} width={200} height={200} /></CSidebarBrand>
+    <div className="clearfix">
+     <CSidebarBrand><CImage  align="start" src={MainLogo} width={70} height={70} /><CImage  align="start" src={PushLogo} width={100} height={100} /></CSidebarBrand>
+    </div>
   </CSidebarHeader>
   <CSidebarNav>
     <CNavTitle>Main Menu</CNavTitle>
@@ -96,14 +98,6 @@ const Dashboard = () => {
 </CSidebar>
 
 
-
-
-
-
-
-/* <button onClick={handleLogout} style={logoutButtonStyle}>
-        Logout
-      </button> */
   );
 };
 
