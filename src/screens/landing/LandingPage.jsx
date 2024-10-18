@@ -66,6 +66,14 @@ const LandingPage = () => {
       // If login is successful, store session data in localStorage
       if (response.status === 200) {
         // Store login status
+        toast({
+          position: 'top-right',
+          title: 'Logging in..',
+          description: "Welcome to PUSH Version 2!",
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        })
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("ntlogin", response.data.data[0].ntlogin);  // Store ntlogin if needed
         navigate("/dashboard"); // Redirect to the dashboard
@@ -74,7 +82,7 @@ const LandingPage = () => {
       }
     } catch (error) {
       toast({
-        position: 'bottom-right',
+        position: 'top-right',
         title: 'Login Failed',
         description: "NTLogin or Password is incorrect!",
         status: 'error',
