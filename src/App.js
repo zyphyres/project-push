@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@chakra-ui/react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Landing, Dashboard,ProtectedRoute } from "./screens";
+import { Landing, Dashboard, ProtectedRoute } from "./screens"; // Ensure ProfilePage is imported
 
 function App() {
   return (
@@ -24,7 +24,8 @@ function App() {
                 <Dashboard />
               </ProtectedRoute>
             }
-          />
+          >  
+          </Route>
         </Routes>
       </Container>
     </Router>

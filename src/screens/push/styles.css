@@ -1,0 +1,44 @@
+.main-content {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: flex-start; /* Align items to the start of the container */
+  align-items: center; /* Center align items horizontally */
+  padding: 20px; /* Add padding around the content */
+  width: 100%; /* Make the content take full width */
+  min-height: 100vh; /* Ensure the content takes full viewport height */
+  background-color: #f8f9fa; /* Light background color */
+  overflow: hidden; /* Hide overflowing content */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.employee-info {
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Limit width to a max of 1200px */
+  margin: 20px 0; /* Add margin above and below */
+  padding: 20px; /* Add padding inside the container */
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+h3 {
+  font-size: 24px; /* Larger font size for headings */
+  font-weight: bold; /* Make the heading bold */
+  color: #343a40; /* Dark text color */
+  margin: 0; /* Remove default margin */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .employee-info {
+    padding: 15px; /* Adjust padding for smaller screens */
+    margin: 10px 0; /* Adjust margin for smaller screens */
+  }
+
+  h3 {
+    font-size: 20px; /* Slightly smaller font size for smaller screens */
+  }
+}

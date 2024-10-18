@@ -75,7 +75,8 @@ const LandingPage = () => {
           isClosable: true,
         })
         localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("ntlogin", response.data.data[0].ntlogin);  // Store ntlogin if needed
+        localStorage.setItem("ntlogin", response.data.data[0].ntlogin); 
+        localStorage.setItem("employee_number", response.data.data[0].employee_number);   // Store ntlogin if needed
         navigate("/dashboard"); // Redirect to the dashboard
       } else {
         console.error("Login failed");

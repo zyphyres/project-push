@@ -1,0 +1,54 @@
+/* .custom-sidebar {
+    background-color: #004387;
+    color: #fff;
+  }
+  
+  .custom-sidebar .nav-icon, .custom-sidebar .c-sidebar-nav .c-nav-link, .custom-sidebar .c-nav-title {
+    color: #fff !important;
+  }
+  
+  .custom-sidebar .c-nav-link:hover {
+    color: #ddd !important; 
+  }
+   */
+
+   /* Default (light mode) */
+/* Light mode */
+body.light {
+  background-color: white;
+  color: black;
+}
+
+.custom-sidebar.light {
+  background-color: white;
+  color: black;
+}
+
+.custom-sidebar.light .nav-icon,
+.custom-sidebar.light .c-nav-title,
+.custom-sidebar.light .c-nav-item {
+  color: black;
+}
+
+/* Dark mode */
+body.dark {
+  background-color: #333;
+  color: white;
+}
+
+.custom-sidebar.dark {
+  background-color: #333;
+  color: white;
+}
+
+.custom-sidebar.dark .nav-icon,
+.custom-sidebar.dark .c-nav-title,
+.custom-sidebar.dark .c-nav-item {
+  color: white;
+}
+.custom-sidebar.dark .c-nav-items:hover{
+  color: black;
+}
+.custom-sidebar.dark .c-nav-item:hover{
+  color: black;
+}
