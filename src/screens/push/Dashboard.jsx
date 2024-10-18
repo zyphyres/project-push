@@ -91,7 +91,7 @@ const Dashboard = () => {
     <CNavItem href="https://coreui.io/pro/"><CIcon customClassName="nav-icon" icon={cilLayers} /> Try CoreUI PRO</CNavItem>
   </CSidebarNav>
   <CSidebarHeader className="border-top">
-    <CSidebarToggler />
+    <CSidebarToggler onClick={handleLogout} />
   </CSidebarHeader>
 </CSidebar>
 
