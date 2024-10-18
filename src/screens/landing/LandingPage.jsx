@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import { FaUserLarge, FaLock } from "react-icons/fa6";
 import {
+  useToast,
   Box,
   Text,
   Image,
@@ -24,8 +25,9 @@ const LandingPage = () => {
     ntlogin: "",
     password: "",
   });
-
-  const navigate = useNavigate(); // Initialize useNavigate for redirection
+  const toast = useToast()
+  const navigate = useNavigate();
+  // Initialize useNavigate for redirection
   const { headerH, logoW, titleW, transitionStyles } =
     ResponsiveTool();
   const { shadowOne, shadowTwo } = LoginBoxShadow();
@@ -59,7 +61,8 @@ const LandingPage = () => {
           },
         }
       );
-  
+      
+    
       // If login is successful, store session data in localStorage
       if (response.status === 200) {
         // Store login status
@@ -70,6 +73,14 @@ const LandingPage = () => {
         console.error("Login failed");
       }
     } catch (error) {
+      toast({
+        position: 'bottom-right',
+        title: 'Login Failed',
+        description: "NTLogin or Password is incorrect!",
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      })
       console.error("Error during login", error);
     }
   };
