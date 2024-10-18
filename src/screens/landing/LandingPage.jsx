@@ -44,53 +44,54 @@ const LandingPage = () => {
 
   const submitForm = async (event) => {
     event.preventDefault();
-    try {
-      const csrfResponse = await axios.get(
-        "http://bac-dev08:3000/sanctum/csrf-cookie",
-        { withCredentials: true }
-      );
-      const csrfToken = csrfResponse.data.csrf_token;
+    navigate("/dashboard");
+    // try {
+    //   const csrfResponse = await axios.get(
+    //     "http://bac-dev08:3000/sanctum/csrf-cookie",
+    //     { withCredentials: true }
+    //   );
+    //   const csrfToken = csrfResponse.data.csrf_token;
   
-      const response = await axios.post(
-        "http://bac-dev08:3000/api/login",
-        data,
-        {
-          withCredentials: true,
-          headers: {
-            "X-CSRF-TOKEN": csrfToken,
-          },
-        }
-      );
+    //   const response = await axios.post(
+    //     "http://bac-dev08:3000/api/login",
+    //     data,
+    //     {
+    //       withCredentials: true,
+    //       headers: {
+    //         "X-CSRF-TOKEN": csrfToken,
+    //       },
+    //     }
+    //   );
       
     
-      // If login is successful, store session data in localStorage
-      if (response.status === 200) {
-        // Store login status
-        toast({
-          position: 'top-right',
-          title: 'Logging in..',
-          description: "Welcome to PUSH Version 2!",
-          status: 'success',
-          duration: 2000,
-          isClosable: true,
-        })
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("ntlogin", response.data.data[0].ntlogin);  // Store ntlogin if needed
-        navigate("/dashboard"); // Redirect to the dashboard
-      } else {
-        console.error("Login failed");
-      }
-    } catch (error) {
-      toast({
-        position: 'top-right',
-        title: 'Login Failed',
-        description: "NTLogin or Password is incorrect!",
-        status: 'error',
-        duration: 5000,
-        isClosable: true,
-      })
-      console.error("Error during login", error);
-    }
+    //   // If login is successful, store session data in localStorage
+    //   if (response.status === 200) {
+    //     // Store login status
+    //     toast({
+    //       position: 'top-right',
+    //       title: 'Logging in..',
+    //       description: "Welcome to PUSH Version 2!",
+    //       status: 'success',
+    //       duration: 2000,
+    //       isClosable: true,
+    //     })
+    //     localStorage.setItem("isLoggedIn", "true");
+    //     localStorage.setItem("ntlogin", response.data.data[0].ntlogin);  // Store ntlogin if needed
+    //     navigate("/dashboard"); // Redirect to the dashboard
+    //   } else {
+    //     console.error("Login failed");
+    //   }
+    // } catch (error) {
+    //   toast({
+    //     position: 'top-right',
+    //     title: 'Login Failed',
+    //     description: "NTLogin or Password is incorrect!",
+    //     status: 'error',
+    //     duration: 5000,
+    //     isClosable: true,
+    //   })
+    //   console.error("Error during login", error);
+    // }
   };
 
   return (
