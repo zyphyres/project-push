@@ -1,11 +1,12 @@
 import React from "react";
 import { Container } from "@chakra-ui/react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Landing, Dashboard, ProtectedRoute } from "./screens"; // Ensure ProfilePage is imported
+import { Landing, Dashboard, ProtectedRoute } from "../src/screens"; // Ensure ProfilePage is imported
+import MainRoutes from "./screens/route/MainRoutes";
 
 function App() {
   return (
-    <Router>
+    
       <Container
         m={0}
         p={0}
@@ -14,21 +15,10 @@ function App() {
         maxHeight="100vh"
         maxWidth="100vw"
       >
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          {/* Wrap dashboard route in ProtectedRoute */}
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          >  
-          </Route>
-        </Routes>
+      <MainRoutes />
       </Container>
-    </Router>
+   
+    
   );
 }
 

@@ -25,11 +25,10 @@ const LandingPage = () => {
     ntlogin: "",
     password: "",
   });
-  const toast = useToast()
+  const [isLoading, setIsLoading] = useState(false); // Added loading state
+  const toast = useToast();
   const navigate = useNavigate();
-  // Initialize useNavigate for redirection
-  const { headerH, logoW, titleW, transitionStyles } =
-    ResponsiveTool();
+  const { headerH, logoW, titleW, transitionStyles } = ResponsiveTool();
   const { shadowOne, shadowTwo } = LoginBoxShadow();
   const theme = useTheme();
   const formRef = useRef(null);
@@ -44,13 +43,14 @@ const LandingPage = () => {
 
   const submitForm = async (event) => {
     event.preventDefault();
+    setIsLoading(true); // Set loading state to true when submitting
     try {
       const csrfResponse = await axios.get(
         "http://bac-dev08:3000/sanctum/csrf-cookie",
         { withCredentials: true }
       );
       const csrfToken = csrfResponse.data.csrf_token;
-  
+
       const response = await axios.post(
         "http://bac-dev08:3000/api/login",
         data,
@@ -61,36 +61,37 @@ const LandingPage = () => {
           },
         }
       );
-      
-    
-      // If login is successful, store session data in localStorage
+
+      // If login is successful
       if (response.status === 200) {
-        // Store login status
         toast({
-          position: 'top-right',
-          title: 'Logging in..',
+          position: "top-right",
+          title: "Logging in..",
           description: "Welcome to PUSH Version 2!",
-          status: 'success',
+          status: "success",
           duration: 2000,
           isClosable: true,
-        })
+        });
         localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("ntlogin", response.data.data[0].ntlogin); 
-        localStorage.setItem("employee_number", response.data.data[0].employee_number);   // Store ntlogin if needed
+        localStorage.setItem("ntlogin", response.data.data[0].ntlogin);
+        localStorage.setItem("employee_number", response.data.data[0].employee_number);
+        localStorage.setItem("name", response.data.data[0].name);
         navigate("/dashboard"); // Redirect to the dashboard
       } else {
         console.error("Login failed");
       }
     } catch (error) {
       toast({
-        position: 'top-right',
-        title: 'Login Failed',
+        position: "top-right",
+        title: "Login Failed",
         description: "NTLogin or Password is incorrect!",
-        status: 'error',
+        status: "error",
         duration: 5000,
         isClosable: true,
-      })
+      });
       console.error("Error during login", error);
+    } finally {
+      setIsLoading(false); // Set loading state back to false after login attempt
     }
   };
 
@@ -268,6 +269,8 @@ const LandingPage = () => {
                     fontWeight="bold"
                     letterSpacing="1px"
                     borderRadius="20px"
+                    isLoading={isLoading} // Button loading state
+                    isDisabled={!data.ntlogin || !data.password || isLoading} // Disable if inputs are empty or during loading
                     sx={{
                       "&:hover": {
                         bg: "blue.100",
@@ -275,7 +278,7 @@ const LandingPage = () => {
                       },
                     }}
                   >
-                    LOGIN
+                    {isLoading ? "Logging in..." : "LOGIN"}
                   </Button>
                 </Center>
               </form>

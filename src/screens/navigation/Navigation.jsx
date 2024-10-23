@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,createBrowserRouter,RouterProvider } from "react-router-dom";
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../navigation/sidebarStyle.css';
+
 import { MainLogo, PushLogo } from "../../assets";
 import {
     CSidebar,
@@ -16,6 +17,7 @@ import {
     CNavGroup,
     CSidebarToggler
 } from '@coreui/react';
+import MainMenu from "./menu/MainMenu";
 
 import { CIcon } from '@coreui/icons-react';
 import * as icon from '@coreui/icons';
@@ -86,6 +88,8 @@ const Navigation = () => {
     };
 
 
+ 
+
     return (
 
 
@@ -97,29 +101,9 @@ const Navigation = () => {
             </CSidebarHeader>
             <CSidebarNav colorScheme="dark">
                 <CNavTitle className="c-nav-title">Main Menu</CNavTitle>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilUser} /><span className="c-nav-item"> My Profile</span> </CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilFeaturedPlaylist} /><span className="c-nav-item"> Announcements</span></CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilVideo} /><span className="c-nav-item"> Reel Skills </span></CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilEnvelopeClosed} /><span className="c-nav-item"> Inbox</span></CNavItem>
-                <CNavGroup className="c-nav-items"
-                    toggler={
-                        <>
-                            <CIcon customClassName="nav-icon" icon={icon.cilNotes} /><span className="c-nav-item"> Readable Documents</span>
-                        </>
-                    }
-                >
-                    <CNavItem className="c-nav-items" href="#"><span className="c-nav-item"> AVAYA One-X Guide</span></CNavItem>
-                    <CNavItem className="c-nav-items" href="#"><span className="c-nav-item"> Paid Leaves</span></CNavItem>
-                    <CNavItem className="c-nav-items"href="#"><span className="c-nav-item"> Company Manuals</span></CNavItem>
-                    <CNavItem className="c-nav-items"href="#"><span className="c-nav-item"> IT Security Policy</span></CNavItem>
-                    <CNavItem className="c-nav-items"href="#"><span className="c-nav-item"> IT Training Modules</span></CNavItem>
-                </CNavGroup>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilNewspaper} /><span className="c-nav-item"> Newsletter</span></CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilSpeak} /><span className="c-nav-item"> Training Documents</span></CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilFeaturedPlaylist} /><span className="c-nav-item"> CSAW 2024</span></CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilJustifyLeft} /><span className="c-nav-item"> Scripts</span></CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilKeyboard} /><span className="c-nav-item"> Typing Test</span></CNavItem>
-                <CNavItem className="c-nav-items" href="#"><CIcon customClassName="nav-icon" icon={icon.cilContact} /><span className="c-nav-item"> Grammar Test</span></CNavItem>
+                
+                <MainMenu />
+                
                 <CNavItem className="c-nav-items" href="#" onClick={(e) => { e.preventDefault(); handleLogout(); }}>
                     <CIcon customClassName="nav-icon" icon={icon.cilExitToApp} /><span className="c-nav-item"> Logout</span>
                 </CNavItem>
