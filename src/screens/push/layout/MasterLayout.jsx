@@ -26,6 +26,7 @@ const MasterLayout = ({ children }) => {
                     <div className="employee-info">
                         <h4>Welcome,</h4>
                         <h3>{name ? name : "Loading..."}</h3>
+                        <img src="" alt="" />
                     </div>
                     <div className='content-Wrapper'>
                         

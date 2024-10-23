@@ -22,21 +22,6 @@ import {
 } from 'mdb-react-ui-kit';
 
 
-// const ProfilePage = () => {
-
-
-//   return (
-//     <>
-//     <MasterLayout title = 'Profile'>
-//         <h1>Profile Content</h1>
-//     </MasterLayout>
-
-//     </>
-//   );
-// }
-
-// export default ProfilePage;
-
 const ProfilePage = () => {
     const [profileData, setProfileData] = useState(null);
     const employeeNumber = localStorage.getItem("employee_number"); // Assuming employee number is stored in localStorage.
@@ -63,33 +48,23 @@ const ProfilePage = () => {
 
     if (!profileData) {
         return (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh' }}>
-            <img src={LoaderPush} style={{ width: '300px', height: '180px' }} />
-          </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh' }}>
+                <img src={LoaderPush} style={{ width: '300px', height: '180px' }} />
+            </div>
         );
-      }
-      
-      
+    }
+
+
 
     return (
         <>
             <MasterLayout title='Profile'>
 
-                <MDBContainer>
-                    <MDBRow>
-                        <MDBCol>
-                            <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-                                {/* <MDBBreadcrumbItem>
-                                    <a href='#'>Home</a>
-                                </MDBBreadcrumbItem>
-                                <MDBBreadcrumbItem>
-                                    <a href="#">User</a>
-                                </MDBBreadcrumbItem> */}
-                                <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
-                            </MDBBreadcrumb>
-                        </MDBCol>
-                    </MDBRow>
+                <h1 className="pageTitle">
+                    My Profile
+                </h1>
 
+                <MDBContainer>
                     <MDBRow>
                         <MDBCol lg="4">
                             <MDBCard className="mb-4">
