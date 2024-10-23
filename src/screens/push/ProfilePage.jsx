@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../push/styles.css';
+import LoaderPush from "../../assets/loader.gif"
 import MasterLayout from "./layout/MasterLayout";
 import axios from 'axios';
 import {
@@ -62,11 +63,12 @@ const ProfilePage = () => {
 
     if (!profileData) {
         return (
-          <h2 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh' }}>
-            Loading...
-          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw', height: '100vh' }}>
+            <img src={LoaderPush} style={{ width: '300px', height: '180px' }} />
+          </div>
         );
       }
+      
       
 
     return (

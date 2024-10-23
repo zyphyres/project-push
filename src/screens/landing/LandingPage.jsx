@@ -64,22 +64,29 @@ const LandingPage = () => {
 
       // If login is successful
       if (response.status === 200) {
+        const name = response.data.data[0].name;  // Get the name from the response
+      
+        // Display the name in the toast message
         toast({
           position: "top-right",
-          title: "Logging in..",
+          title: `Hi, ${name}!`,
           description: "Welcome to PUSH Version 2!",
           status: "success",
           duration: 2000,
           isClosable: true,
         });
+      
+        // Store the data in localStorage
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("ntlogin", response.data.data[0].ntlogin);
         localStorage.setItem("employee_number", response.data.data[0].employee_number);
-        localStorage.setItem("name", response.data.data[0].name);
+        localStorage.setItem("name", name);
+      
         navigate("/dashboard"); // Redirect to the dashboard
       } else {
         console.error("Login failed");
       }
+      
     } catch (error) {
       toast({
         position: "top-right",
