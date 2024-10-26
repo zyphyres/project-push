@@ -1,26 +1,14 @@
 import * as icon from '@coreui/icons';
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import ProfilePage from '../../push/ProfilePage';
-import Announcement from '../../push/Announcement';
-import Dashboard from '../../push/Dashboard';
+
 
 const menuMain = [
 
-    {title:'Dashboard',
-     icon:icon.cilApps,
-     path:'/dashboard',
-     element:''
-    },
-    {title:'My Profile',
-     icon:icon.cilUser,
-     path:'/profile',
-     element:<ProfilePage/>
-    },
     {title:'Announcement',
      icon:icon.cilFeaturedPlaylist,
      path:'/announcement',
-     element:<Announcement />
+     element:''
     },
     {title:'Reel Skill',
      icon:icon.cilVideo,

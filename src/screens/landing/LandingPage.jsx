@@ -64,6 +64,7 @@ const LandingPage = () => {
 
       // If login is successful
       if (response.status === 200) {
+        // console.log(data.data[0]);
         const name = response.data.data[0].name;  // Get the name from the response
       
         // Display the name in the toast message
@@ -79,10 +80,11 @@ const LandingPage = () => {
         // Store the data in localStorage
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("ntlogin", response.data.data[0].ntlogin);
+        localStorage.setItem("ou", response.data.data[0].ou);
         localStorage.setItem("employee_number", response.data.data[0].employee_number);
         localStorage.setItem("name", name);
       
-        navigate("/dashboard"); // Redirect to the dashboard
+        navigate("/announcement");
       } else {
         console.error("Login failed");
       }

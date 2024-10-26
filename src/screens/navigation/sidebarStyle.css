@@ -58,3 +58,8 @@ body.dark {
 .custom-sidebar.dark .c-nav-item:hover{
   color: black;
 }
+.navWrapper{
+  height: 100%;
+  position: sticky;
+  top: 0;
+}

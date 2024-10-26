@@ -1,0 +1,29 @@
+/* BackToTopButton.css */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #066b94;
+    color: white;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    z-index: 99999;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0.7;
+  }
+  
+  .back-to-top:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  .back-to-top:active {
+    transform: scale(0.95);
+  }
+  

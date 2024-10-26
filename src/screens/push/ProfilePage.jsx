@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import '../push/styles.css';
+import '../push/css/styles.css';
 import LoaderPush from "../../assets/loader.gif"
+import ProfileImg from "../../assets/profile.png"
 import MasterLayout from "./layout/MasterLayout";
 import axios from 'axios';
 import {
@@ -60,10 +61,7 @@ const ProfilePage = () => {
         <>
             <MasterLayout title='Profile'>
 
-                <h1 className="pageTitle">
-                    My Profile
-                </h1>
-
+            
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol lg="4">
@@ -71,7 +69,7 @@ const ProfilePage = () => {
                                 <MDBCardBody className="text-center">
                                     <div className="d-flex justify-content-center mb-3">
                                         <MDBCardImage
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                            src={ProfileImg}
                                             alt="avatar"
                                             className="rounded-circle"
                                             style={{ width: '150px' }}
@@ -152,7 +150,7 @@ const ProfilePage = () => {
                             </MDBCard>
                         </MDBCol>
 
-                        <MDBCol lg="8">
+                        <MDBCol lg="7">
                             <MDBCard className="mb-4">
                                 <MDBCardBody>
                                     <MDBRow>

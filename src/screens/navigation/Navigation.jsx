@@ -39,57 +39,9 @@ const Navigation = () => {
         localStorage.setItem("theme", newTheme); // Save the new theme in localStorage
     };
 
-    // Logout function with SweetAlert2 confirmation
-    const handleLogout = async () => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "Do you want to logout?",
-            icon: 'warning',
-            position: 'top-end', // Position the modal in the top-right corner
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, logout!',
-            toast: true,
-            customClass: {
-            popup: 'my-custom-swal' // Apply the custom size class here
-            }
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                try {
-                    await axios.get("http://bac-dev08:3000/sanctum/csrf-cookie", {
-                        withCredentials: true,
-                    });
-
-                    const response = await axios.post(
-                        "http://bac-dev08:3000/api/logout",
-                        {},
-                        { withCredentials: true }
-                    );
-
-                    if (response.status === 200) {
-                        localStorage.removeItem("isLoggedIn");
-                        localStorage.removeItem("ntlogin");
-                        navigate("/");
-                    } else {
-                        Swal.fire(
-                            'Error!',
-                            'Logout failed. Please try again.',
-                            'error'
-                        );
-                    }
-                } catch (error) {
-                    Swal.fire(
-                        'Error!',
-                        'There was an error during logout. Please try again.',
-                        'error'
-                    );
-                }
-            }
-        });
-    };
 
     return (
+        <div className='navWrapper'>
         <CSidebar className={`border-end custom-sidebar ${theme}`}>
             <CSidebarHeader className="border-bottom">
                 <div className="clearfix">
@@ -102,13 +54,10 @@ const Navigation = () => {
             <CSidebarNav colorScheme="dark">
                 <CNavTitle className="c-nav-title">Main Menu</CNavTitle>
                 <MainMenu />
-                <CNavItem className="c-nav-items" href="#" onClick={(e) => { e.preventDefault(); handleLogout(); }}>
-                    <CIcon customClassName="nav-icon" icon={icon.cilExitToApp} />
-                    <span className="c-nav-item"> Logout</span>
-                </CNavItem>
             </CSidebarNav>
             <CSidebarHeader className="border-top"></CSidebarHeader>
         </CSidebar>
+        </div>
     );
 };
 

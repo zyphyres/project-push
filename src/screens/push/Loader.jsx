@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../push/styles.css'
+import '../push/css/styles.css'
 
 const Loader = () => {
     return (

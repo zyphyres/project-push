@@ -1,0 +1,82 @@
+:root {
+  --primary-color: #4a4a4a;
+  --secondary-color: #f0f2f5;
+  --accent-color: #066b94;
+  --menu-bg-color: white;
+  --menu-border-color: #ccc;
+  --menu-hover-bg: #a5a5a5;
+  --font-size-h3: 16px;
+  --font-size-h4: 13px;
+}
+
+.my-swiper {
+  border: 15px inset #066b94;
+  border-radius: 10px;
+  height: 520px;
+  margin: 0 10px !important;
+  padding: 10px;
+  width: 100%;
+  /* Optional: padding inside the swiper */
+}
+
+.slide {
+  max-height: 100%;
+  /* Ensure the slide takes full height */
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+  padding: 10px;
+  /* Add padding for better look */
+}
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+  bottom: 75px !important;
+}
+
+
+.slide .slide-title {
+  background-color: #066b94;
+  bottom: -2px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  left: 0;
+  padding: 21px;
+  position: absolute;
+  text-align: start;
+  width: 100%;
+}
+
+.slide div p img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.my-ann {
+  background-color: #ececec;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px #00000063;
+  margin-bottom: 12px !important;
+  padding: 8px;
+  width: 100%;
+}
+
+.my-ann div p {
+  margin: 0 0 1rem 0 !important;
+  padding: 0 100px !important;
+  background-color: #fff !important;
+}
+
+.my-ann div p img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+.my-ann .announcement-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.my-ann .announcement-group .announcement-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #066b94;
+}

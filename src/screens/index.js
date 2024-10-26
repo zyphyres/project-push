@@ -1,8 +1,8 @@
 import Landing from './landing/LandingPage'
-import Dashboard from './push/Dashboard'
 import ProtectedRoute from './route/ProtectedRoute'
 import Navigation from './navigation/Navigation'
 import ProfilePage from './push/ProfilePage'
+import Announcement from './push/Announcement'
 import Loader from './push/Loader'
 // import { cache } from 'react';
 
@@ -10,7 +10,7 @@ import Loader from './push/Loader'
 export 
 {
 Landing,
-Dashboard,
+Announcement,
 ProtectedRoute,
 Navigation,
 ProfilePage,
